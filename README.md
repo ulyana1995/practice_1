@@ -60,5 +60,32 @@ SSH-ключ состоит из публичного и прватного кл
 Файл HEAD находится в папке .git и содержит ссылку на служебный файл refs/heads/master, содержащий хеш последнего коммита.<br>
 Вместо хеша последнего коммита можно использовать слово HEAD.
 
+# Статусы файлов в Git
+В Git файлы могут находиться в следующих статусах:
+* `untracked` - новые файлы, не отслеживаемые Git.
+* `staged` - файл попадает в staging area после git add, то есть в список файлов, которые войдут в коммит.
+* `tracked` - файлы, отслеживаемые Git, включая фиксированные и добавленные в staging area.
+* `modified` - файлы с изменениями относительно последней версии в staging.
+
+#### Типичный жизненный цикл файла в Git
+```mermaid
+ graph LR
+ subgraph " "
+C(modified) 
+B(staged)
+D(tracked)
+ end
+    A(untracked) -->|git add| B
+    B -->|git commit| D 
+    B --> |изменения| C
+    D --> |изменения| C     
+    C -->|git add| B
+
+ style A fill:#42aaff
+ style C fill:#ffffff
+ style B fill:#ffa500
+ style D fill:#ffffff
+
+```
 
 Материал подготовлен с помощью [Яндекс-практикум](https://practicum.yandex.com/profile/qa-automation-engineer-python/?from=learn_subscriptions-with-prof-recommendations) 
