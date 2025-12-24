@@ -88,4 +88,12 @@ D(tracked)
 
 ```
 
+1. Когда файл только что создан, то git ещё не отслеживает содержимое этого файла. Состояние: untracked.
+2. После вызова команды `git add` файл добавился в staging area. Состояние: staged (+ tracked).
+3. Сделали коммит с помощью `git commit`. Состояние: tracked.
+4. Сделали изменение в файле. Состояние: modified (+ tracked).
+5. Снова добавили в staging area с помощью `git add`. Состояния: staged (+ tracked).
+6. Сделали коммит. Состояния: tracked.
+
+
 Материал подготовлен с помощью [Яндекс-практикум](https://practicum.yandex.com/profile/qa-automation-engineer-python/?from=learn_subscriptions-with-prof-recommendations) 
